@@ -1,0 +1,81 @@
+
+#game{
+    /* width: 1366px;
+    height: 768px; */
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+}
+
+
+#canvas{
+     /* position the top  edge of the element at the middle of the parent */
+    position: absolute;
+    top: 150px; 
+    left: 50%; 
+    transform: translate(-50%);
+
+    border: 1px solid black;
+}
+
+#setting{
+    width: 350px;
+    height: 600px;
+    position: absolute;
+    left: 30px; 
+    top: 150px;
+
+    border: 1px solid black;
+}
+
+#gameInfo{ 
+    width: 350px;
+    height: 400px;
+    position: absolute;
+    top: 150px; 
+    right: 30px; 
+    transform: translate(-50%);
+    border: 1px solid black;
+}
+
+#randomSettingButton{
+    font-weight: bold;
+    color: whitesmoke;
+    background-color: blue;
+    border: 1px solid black;
+
+    position: absolute;
+    bottom: 30px; 
+    left: 70px; 
+}
+
+#startGameButton{
+    font-weight: bold;
+    color: whitesmoke;
+    background-color: blue;
+    border: 1px solid black;
+
+    position: absolute;
+    bottom: 30px; 
+    right: 70px; 
+}
+
+
+#gameSettingTitle{
+    text-align: center;
+}
+
+#Random{
+    border: 1px solid black;
+}
+
+#lblBalssNum{
+    font-weight: bold; 
+}
+
+
+button{
+    width: 100px;
+    height: 50px;
+    align-content: center;
+}

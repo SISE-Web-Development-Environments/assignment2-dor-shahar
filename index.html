@@ -1,21 +1,65 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="style.css"></link>
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
 	</head>
 
 	<body>
-		<div id="score">
-			<label for="lblScore">SCORE:</label>
-			<input id="lblScore" type="text" />
-		</div>
-		<div id="time">
-			<label for="lblTime">TIME:</label>
-			<input id="lblTime" type="text" />
-		</div>
 		<div id="game">
+			<div id="setting">
+				<h2 id="gameSettingTitle">Game Settings</h2>
+				<br>
+				<h4 id="bottonsSetting">Chose Buttons To Play With:</h4>
+				<br>
+				<label for="lblUpButton">UP:</label>
+				<input id="lblUpButton" type="text" />
+				<br>
+				<label for="lblRigthButton">Right:</label>
+				<input id="lblRigthButton" type="text" />
+				<br>
+				<label for="lblDownButton">Down:</label>
+				<input id="lblDownButton" type="text" />
+				<br>
+				<label for="lblLeftButton">Left:</label>
+				<input id="lblLeftButton" type="text" />
+				<br>
+				<br>
+				<label id="lblBalssNum">Number Of Candy Balls: 50</label><br>
+				<input type="range" min="50" max="90" value="50" class="slider" id="ballsNum">
+				<br>
+				<label for="SmallBalls">Small Balls Color:</label>
+				<input id="SmallBalls" type="text" />
+				<br>
+				<label for="MediumBalls">Medium Balls Color:</label>
+				<input id="MediumBalls" type="text" />
+				<br>
+				<label for="LargeBalls">Large Balls Color:</label>
+				<input id="LargeBalls" type="text" />				
+				<br>
+				<label for="setTimer">Set Game Time:</label>
+				<input id="setTimer" type="text" />
+				<br>
+				<br>
+				<label id="lblmonstersNum">Number Of Monsters: 4</label><br>
+				<input type="range" min="1" max="4" value="4" class="slider" id="monstersNum">
+				<br>
+				<br>
+				<button id="randomSettingButton" value="Random Setting">Random Setting</button>
+				<button id="startGameButton" value="Start!">Start!</button>
+			</div>
 			<canvas id="canvas" height="600" width="600"></canvas>
+			<div id="gameInfo">
+				<div id="score">
+						<label for="lblScore">SCORE:</label>
+						<input id="lblScore" type="text" />
+				</div>
+				<div id="time">
+					<label for="lblTime">TIME:</label>
+					<input id="lblTime" type="text" />
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

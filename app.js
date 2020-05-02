@@ -10,7 +10,17 @@ var interval;
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	Start();
+	addEvents();
 });
+
+function addEvents() {
+	$("#ballsNum").mouseup(function() {
+		$("#lblBalssNum")[0].innerText = "Number Of Balls: " + this.value;
+	});
+	$("#monstersNum").mouseup(function() {
+		$("#lblmonstersNum")[0].innerText = "Number Of Monsters: " + this.value;
+	});
+}
 
 function Start() {
 	board = new Array();
@@ -119,12 +129,12 @@ function Draw() {
 			} else if (board[i][j] == 1) {
 				context.beginPath();
 				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
-				context.fillStyle = "black"; //color
+				context.fillStyle = "blue"; //color
 				context.fill();
 			} else if (board[i][j] == 4) {
 				context.beginPath();
 				context.rect(center.x - 30, center.y - 30, 60, 60);
-				context.fillStyle = "grey"; //color
+				context.fillStyle = "black"; //color
 				context.fill();
 			}
 		}
@@ -170,3 +180,4 @@ function UpdatePosition() {
 		Draw();
 	}
 }
+
