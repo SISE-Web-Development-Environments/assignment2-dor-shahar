@@ -416,7 +416,7 @@ hr {
     margin-top: 30px;
     color: yellow;
     bottom: 0px;
-    position: relative;
+    /* position: relative; */
     vertical-align: middle;
     font-family: "Comic Sans MS",cursive,sans-serif;
     font-size: 20px;
@@ -514,6 +514,8 @@ hr {
 
 #pacmanImg {
     margin-top: 15%;
+    width: 30%;
+    height: 15%;
 }
 
 
