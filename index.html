@@ -6,13 +6,15 @@
 	</link>
 	<script src="./jquery-3.4.1.slim.min.js"></script>
 	<script type="text/javascript" src="./app.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
 <header id="header" style="display: none">
 	<label id="headerIds" style="color: white">Dor Pinhas & Shahar Freiman</label>
 	<div id="pacmanlblDivHeader"><img class="fit" src='images/PacManlbl.png'></img></div>
 	<ul id="menu">
-		<li><a id="aboutMenu">About</a></li>
+		<li><a href="#about" rel="modal:open" id="aboutMenu">About</a></li>
 		<li><a id="settingMenu">Setting</a></li>
 		<li><a id="loginMenu">Login</a></li>
 		<li><a id="registerMenu">Register</a></li>
@@ -20,7 +22,20 @@
 	</ul>
 </header>
 <body>
-
+	<div id="about" class="modal">
+		<p>
+			Created by:<br>
+			 <strong>Shahar Freiman and Dor Pinhas</strong>
+			 <br><br>
+			Plugin: <br>
+			jQuery
+			modal tools
+			<br><br>
+			Difficulties: <br>
+			We had no difficulties writing this project
+		</p>
+		<a href="#" style="margin-top: 5rem;" class="closeBtn" rel="modal:close">Close</a>
+	</div>
 	<div id="welcome" style="display: block">
 		<div id="pacmanlblDiv"><img class="fit" src='images/PacManlbl.png'></img></div>
 		<div id="pacmanDiv"><img class="fit" src='images/pacman.png'></img></div>
@@ -122,23 +137,23 @@
 		</form>
 	</div>
 	<div id="game" style="display: none">
-		<canvas id="canvas" height="80%" width="80%"></canvas>
+		<canvas id="canvas" height="500%" width="500%"></canvas>
 		<div id="gameInfo">
 			<div id="score" class="SettingsMenu">
 				<label for="lblScore">Score:</label>
-				<input id="lblScore" type="text" class="settingsBoxes"/>
+				<input disabled="disabled" id="lblScore" type="text" class="settingsBoxes"/>
 			</div>
 			<div id="time" class="SettingsMenu">
 				<label for="lblTime">Time:</label>
-				<input id="lblTime" type="text" class="settingsBoxes"/>
+				<input disabled="disabled" id="lblTime" type="text" class="settingsBoxes"/>
 			</div>
 			<div id="life" class="SettingsMenu">
 				<label for="lblRemainingLife">Remaining Life: </label>
-				<input id="lblRemainingLife" type="text" class="settingsBoxes"/>
+				<input disabled="disabled" id="lblRemainingLife" type="text" class="settingsBoxes"/>
 			</div>
 			<div id="ballsNumber" class="SettingsMenu">
 				<label for="lblNumberOfBalls">Number Of Food Left: </label>
-				<input id="lblNumberOfBalls" type="text" class="settingsBoxes"/>
+				<input disabled="disabled" id="lblNumberOfBalls" type="text" class="settingsBoxes"/>
 			</div>
 			<div id="monsters" class="SettingsMenu">
 				<div id="settingsMonsters">
@@ -160,20 +175,20 @@
 			<label id="lblKeyMapping">Key Mapping:</label>
 			<div id="keys" class="SettingsMenu">
 					<label for="lblKeyUp">Up Key: </label>
-					<input id="lblKeyUp" type="text" class="KeyBoxes"/>
+					<input disabled="disabled" id="lblKeyUp" type="text" class="KeyBoxes"/>
 					<br>
 					<label id="labelKeyDown" for="lblKeyDown">Down Key: </label>
-					<input id="lblKeyDown" type="text" class="KeyBoxes"/>
+					<input disabled="disabled" id="lblKeyDown" type="text" class="KeyBoxes"/>
 					<br>	
 					<label for="lblKeyLeft">Left Key: </label>
-					<input id="lblKeyLeft" type="text" class="KeyBoxes"/>
+					<input disabled="disabled" id="lblKeyLeft" type="text" class="KeyBoxes"/>
 					<br>
 					<label for="lblKeyRight">Right Key: </label>
-					<input id="lblKeyRight" type="text" class="KeyBoxes"/>
+					<input disabled="disabled" id="lblKeyRight" type="text" class="KeyBoxes"/>
 			</div>
 		</div>
 		<a href="#" class="NewGameButton" onclick="Start()">New Game</a>
-		<img id="pacmanImg" src="pacman-game.png"> 
+		<img id="pacmanImg" src="images\\pacman-game.png"> 
 	</div>
 	<footer id="footer" style="display: none">
 			<label id="footerIds" style="color: white">This Website is a Pac-Man game that was created for a Web Programming course in BGU</label><br>

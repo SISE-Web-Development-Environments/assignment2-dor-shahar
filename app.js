@@ -19,13 +19,14 @@ var pacman_interval_time = 201;
 var monster_interval_time = 403;
 var treat_interval_time = 3001;
 var speed_up_interval_time = 5001;
-speed_up_image.src = "speed_up.png";
-heart_image.src = "heart_image.png";
+speed_up_image.src = "images\\speed_up.png";
+heart_image.src = "images\\heart_image.png";
 var monsters;
 var monster_colors = ["red", "green", "blue", "orange"]
 
-var win_sound = new Audio("win.mp3");
-var eaten_sound = new Audio("death.mp3")
+var win_sound = new Audio("sounds\\win.mp3");
+var eaten_sound = new Audio("sounds\\death.mp3")
+var background_song = new Audio("sounds\\backgroundSong.mp3");
 
 /* keys for move */
 var moveKeys = {
@@ -154,7 +155,7 @@ function Start() {
 	food_left = window.foodBallsNumber;
 	treat.is_appears = false;
 	speed_up.is_appears = false;
-	life_left = 3;
+	life_left = 5;
 	DrawSettingsMonsters();
 	SetSettingsKeysLabels();
 	SetSettingsBallColors();
@@ -186,6 +187,7 @@ function Start() {
 	monster_interval = setInterval(UpdateMonster, monster_interval_time);
 	treat_interval = setInterval(UpdateTreat, treat_interval_time);
 	speed_up_interval = setInterval(UpdateSpeedUp, speed_up_interval_time);
+	background_song.play();
 }
 
 function SetSettingsBallColors() {
@@ -204,7 +206,7 @@ function SetSettingsKeysLabels() {
 function DrawSettingsMonsters() {
 	let img_array = [SettingMonster1, SettingMonster2, SettingMonster3, SettingMonster4];
 	for (let i = 0; i < monstersNum; i++) {
-		img_array[i].src = monster_colors[i] + "Ghost.png";
+		img_array[i].src = "images\\" + monster_colors[i] + "Ghost.png";
 		img_array[i].style.display = "inline";
 	}
 }
@@ -384,8 +386,8 @@ function Draw() {
 function draw_speed_up(cell_width, cell_height) {
 	if (speed_up.is_appears) {
 		let center = new Object();
-		center.x = speed_up.i * cell_height + cell_height / 2 - 10;
-		center.y = speed_up.j * cell_width + cell_width / 2 - 10;
+		center.x = speed_up.i * cell_height + cell_height / 2 - 7;
+		center.y = speed_up.j * cell_width + cell_width / 2 - 7;
 		context.drawImage(speed_up_image, center.x, center.y, cell_width, cell_height - 5);
 	}
 }
@@ -394,8 +396,8 @@ function draw_treat(cell_width, cell_height) {
 	if (treat.is_appears) {
 		let center = new Object();
 		center.x = treat.i * cell_height + cell_height / 2 - 10;
-		center.y = treat.j * cell_width + cell_width / 2 - 10;
-		cherry(context, center.x, center.y, 20, 20)
+		center.y = treat.j * cell_width + cell_width / 2 - 7;
+		cherry(context, center.x, center.y, cell_width-3, cell_height-5);
 	}
 }
 
@@ -451,8 +453,8 @@ function draw_pacman(cell_width, cell_height) {
 function draw_heart(cell_width, cell_height) {
 	if (heart.is_appears) {
 		let center = new Object();
-		center.x = heart.i * cell_height + cell_height / 2 - 10;
-		center.y = heart.j * cell_width + cell_width / 2 - 10;
+		center.x = heart.i * cell_height + cell_height / 2 - 5;
+		center.y = heart.j * cell_width + cell_width / 2 - 5;
 		context.drawImage(heart_image, center.x, center.y, cell_width - 5, cell_height - 10);
 	}
 }
@@ -489,7 +491,7 @@ function UpdatePosition() {
 		heart.i = -1;
 		heart.j = -1;
 		board[pacman.i][pacman.j] = heart.sit_on;
-		score += 100;
+		score += 50;
 	}
 	if (board[pacman.i][pacman.j] == 7) {
 		score += 5;
@@ -504,7 +506,7 @@ function UpdatePosition() {
 		food_left--;
 	}
 	if (board[pacman.i][pacman.j] == 5) {
-		score += 100;
+		score += 30;
 		treat.is_appears = false;
 		board[pacman.i][pacman.j] = 0;
 	}
@@ -523,6 +525,7 @@ function UpdatePosition() {
 	if (time_elapsed <= 0) {
 		time_elapsed = 0;
 		try {
+			background_song.pause();
 			win_sound.play();
 		}
 		catch (error) { }
@@ -530,7 +533,12 @@ function UpdatePosition() {
 		window.clearInterval(monster_interval);
 		window.clearInterval(treat_interval_time);
 		window.clearInterval(speed_up_interval);
-		window.alert("Game completed");
+		if(score < 100) {
+			window.alert("You are better than " + score + " points!");
+		}
+		else {
+		window.alert("Winner!");
+		}
 		win_sound.pause();
 	}
 }
@@ -661,7 +669,8 @@ function Eaten() {
 		window.clearInterval(monster_interval);
 		window.clearInterval(treat_interval);
 		window.clearInterval(speed_up_interval);
-		window.alert("Game Over!\nYour Score is: " + score);
+		background_song.pause();
+		window.alert("Loser!");
 	}
 	else
 		RestartBoard();
