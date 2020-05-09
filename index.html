@@ -1,65 +1,184 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="style.css"></link>
-		<script src="./jquery-3.4.1.slim.min.js"></script>
-		<script type="text/javascript" src="./app.js"></script>
-	</head>
 
-	<body>
-		<div id="game">
-			<div id="setting">
-				<h2 id="gameSettingTitle">Game Settings</h2>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	</link>
+	<script src="./jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
+</head>
+
+<header id="header" style="display: none">
+	<label id="headerIds" style="color: white">Dor Pinhas & Shahar Freiman</label>
+	<div id="pacmanlblDivHeader"><img class="fit" src='images/PacManlbl.png'></img></div>
+	<ul id="menu">
+		<li><a id="aboutMenu">About</a></li>
+		<li><a id="settingMenu">Setting</a></li>
+		<li><a id="loginMenu">Login</a></li>
+		<li><a id="registerMenu">Register</a></li>
+		<li><a id="welcomeMenu">Welcome</a></li>
+	</ul>
+</header>
+<body>
+
+	<div id="welcome" style="display: block">
+		<div id="pacmanlblDiv"><img class="fit" src='images/PacManlbl.png'></img></div>
+		<div id="pacmanDiv"><img class="fit" src='images/pacman.png'></img></div>
+		<div id="pacman2Div"><img class="fit" src='images/pacman2.png'></img></div>
+		<div id="monster1Div"><img class="fit" src='images/monster1.png'></img></div>
+		<div id="monster2Div"><img class="fit" src='images/monster2.png'></img></div>
+		<div id="monster3Div"><img class="fit" src='images/monster3.png'></img></div>
+		<div id="monster4Div"><img class="fit" src='images/monster4.png'></img></div>
+		<button id="welcomeToRegisterButton" class="welcomeButton">Register</button>
+		<button id="welcomeToLoginButton" class="welcomeButton">Login</button>
+	</div>
+	<div id="register" style="display: none">
+		<form id="registerForm" action="">
+			<div class="container">
+				<h1 style="color: white;">Register</h1>
+				<p>Please fill in this form to create an account.</p>
+				<hr>
+				<input id="username" class="rlTextBox" type="text" placeholder="Username" name="Username" required>
 				<br>
-				<h4 id="bottonsSetting">Chose Buttons To Play With:</h4>
+				<input id="fullName" class="rlTextBox" type="text" placeholder="Full Name" name="Full Name" required>
 				<br>
-				<label for="lblUpButton">UP:</label>
-				<input id="lblUpButton" type="text" />
+				<input id="email" class="rlTextBox" type="email" placeholder="Enter Email" name="email" required>
 				<br>
-				<label for="lblRigthButton">Right:</label>
-				<input id="lblRigthButton" type="text" />
+				<input id="password" class="rlTextBox" type="password" placeholder="Enter Password" name="psw" required>
 				<br>
-				<label for="lblDownButton">Down:</label>
-				<input id="lblDownButton" type="text" />
+				<input id="repassword" class="rlTextBox" type="password" placeholder="Repeat Password" name="psw-repeat" required>
 				<br>
-				<label for="lblLeftButton">Left:</label>
-				<input id="lblLeftButton" type="text" />
-				<br>
-				<br>
-				<label id="lblBalssNum">Number Of Candy Balls: 50</label><br>
-				<input type="range" min="50" max="90" value="50" class="slider" id="ballsNum">
-				<br>
-				<label for="SmallBalls">Small Balls Color:</label>
-				<input id="SmallBalls" type="text" />
-				<br>
-				<label for="MediumBalls">Medium Balls Color:</label>
-				<input id="MediumBalls" type="text" />
-				<br>
-				<label for="LargeBalls">Large Balls Color:</label>
-				<input id="LargeBalls" type="text" />				
-				<br>
-				<label for="setTimer">Set Game Time:</label>
-				<input id="setTimer" type="text" />
-				<br>
-				<br>
-				<label id="lblmonstersNum">Number Of Monsters: 4</label><br>
-				<input type="range" min="1" max="4" value="4" class="slider" id="monstersNum">
-				<br>
-				<br>
-				<button id="randomSettingButton" value="Random Setting">Random Setting</button>
-				<button id="startGameButton" value="Start!">Start!</button>
+				<label class="control-label">Date of birth: </label>
+				<select id="days" class="chooseBDateBox"></select>
+				<select id="months" class="chooseBDateBox"></select>
+				<select id="years" class="chooseBDateBox"></select>
+				<br><br>
+				<hr>
+				<button type="submit" class="sbmitbtn" id="registerbtn">Register</button>
 			</div>
-			<canvas id="canvas" height="600" width="600"></canvas>
-			<div id="gameInfo">
-				<div id="score">
-						<label for="lblScore">SCORE:</label>
-						<input id="lblScore" type="text" />
+		</form>
+	</div>
+	<div id="login" style="display: none">
+		<form id="loginForm">
+			<div class="container">
+				<h1 style="color: white;">Login</h1>
+				<p>Please fill in this form to create an account.</p>
+				<hr>
+				<input id="loginUsername" class="rlTextBox" type="text" placeholder="Username" name="Username" required>
+				<br>
+				<input id="loginPassword" class="rlTextBox" type="password" placeholder="Password" name="psw" required>
+				<br>
+				<hr>
+				<button type="submit" class="sbmitbtn">Login</button><br><br>
+				<button type="button" class="toRegisterButton" id="loginToRegisterBtn">Register</button>
+			</div>
+		</form>
+	</div>
+	<div id="setting" style="display: none">
+		<form id="settingForm">
+			<h2 id="gameSettingTitle" class="settingSublbl">Game Settings</h2>
+			<h4 id="bottonsSetting" class="settingSublbl">Choose Buttons To Play With:</h4>
+
+			<button id="upButton" class="moveSettingButton" type="button">Setup UP Button!</button>
+			<br>
+			<div class="align">
+				<button id="leftButton" class="moveSettingButton" type="button">Setup LEFT Button!</button>
+				<button id="downButton" class="moveSettingButton" type="button">Setup DOWN Button!</button>
+				<button id="rightButton" class="moveSettingButton" type="button">Setup RIGHT Button!</button>
+			</div>
+
+			<h4 id="lblBalssNum" class="settingSublbl">Number Of Balls: 50</h4>
+			<input type="range" class="slider" min="50" max="90" value="50" id="ballsNum">
+
+			<h4 id="lblmonstersNum" class="settingSublbl">Number Of Monsters: 4</h4>
+			<input type="range" class="slider" min="1" max="4" value="4" id="monstersNum">
+			<br><br><br>
+			<div class="align">
+				<label for="smallBallsColor" class=textBoxText>Small Balls Color: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+				<input id="smallBallsColor" type="color" class="textBoxInput" value="#6666ff" />
+			</div>
+			<br>
+			<div class="align">
+				<label for="mediumBallsColor" class=textBoxText>Medium Balls Color: &nbsp&nbsp</label>
+				<input id="mediumBallsColor" type="color" class="textBoxInput" value="#9933ff" />
+			</div>
+			<br>
+			<div class="align">
+				<label for="bigBallsColor" class=textBoxText>Large Balls Color: &nbsp&nbsp&nbsp&nbsp&nbsp</label>
+				<input id="bigBallsColor" type="color" class="textBoxInput" value="#ff33cc" />
+			</div>
+			<br><br><br>
+			<div class="align">
+				<label for="setTimer" class=textBoxText>Set Game Time:&nbsp&nbsp</label>
+				<input id="setTimer" type="number" class="textBoxInput" value=60> seconds</input>
+			</div>
+
+			<div class="alignRandStartButtons">
+				<button id="randomSettingButton" class='rsButtons' value="Random Setting" type="button">Random
+					Setting</button>
+				<button id="startGameButton" class='rsButtons' value="Start!" type="button">Start!</button>
+				<br><br>
+			</div>
+		</form>
+	</div>
+	<div id="game" style="display: none">
+		<canvas id="canvas" height="800%" width="800%"></canvas>
+		<div id="gameInfo">
+			<div id="score" class="SettingsMenu">
+				<label for="lblScore">Score:</label>
+				<input id="lblScore" type="text" class="settingsBoxes"/>
+			</div>
+			<div id="time" class="SettingsMenu">
+				<label for="lblTime">Time:</label>
+				<input id="lblTime" type="text" class="settingsBoxes"/>
+			</div>
+			<div id="life" class="SettingsMenu">
+				<label for="lblRemainingLife">Remaining Life: </label>
+				<input id="lblRemainingLife" type="text" class="settingsBoxes"/>
+			</div>
+			<div id="ballsNumber" class="SettingsMenu">
+				<label for="lblNumberOfBalls">Number Of Food Left: </label>
+				<input id="lblNumberOfBalls" type="text" class="settingsBoxes"/>
+			</div>
+			<div id="monsters" class="SettingsMenu">
+				<div id="settingsMonsters">
+					<label for="SettingMonster1">Monsters: </label>
+					<img class="SettingsMonsterPic" id="SettingMonster1" ></img>
+					<img class="SettingsMonsterPic" id="SettingMonster2" ></img>
+					<img class="SettingsMonsterPic" id="SettingMonster3" ></img>
+					<img class="SettingsMonsterPic" id="SettingMonster4" ></img>
 				</div>
-				<div id="time">
-					<label for="lblTime">TIME:</label>
-					<input id="lblTime" type="text" />
-				</div>
+			</div>
+			<div id="ballsColor" class="SettingsMenu">
+				<label for="lblNumberOfBalls">Color Of Balls: </label>
+				<span id="SmallBall" class="dot"></span>
+				<span id="MediumBall" class="dot"></span>
+				<span id="BigBall" class="dot"></span>
 			</div>
 		</div>
-	</body>
+		<div id="KeyMapping">
+			<label id="lblKeyMapping">Key Mapping:</label>
+			<div id="keys" class="SettingsMenu">
+					<label for="lblKeyUp">Up Key: </label>
+					<input id="lblKeyUp" type="text" class="KeyBoxes"/>
+					<br>
+					<label id="labelKeyDown" for="lblKeyDown">Down Key: </label>
+					<input id="lblKeyDown" type="text" class="KeyBoxes"/>
+					<br>	
+					<label for="lblKeyLeft">Left Key: </label>
+					<input id="lblKeyLeft" type="text" class="KeyBoxes"/>
+					<br>
+					<label for="lblKeyRight">Right Key: </label>
+					<input id="lblKeyRight" type="text" class="KeyBoxes"/>
+			</div>
+		</div>
+		<a href="#" class="NewGameButton" onclick="Start()">New Game</a>
+		<img id="pacmanImg" src="pacman-game.png"> 
+	</div>
+	<footer id="footer" style="display: none">
+			<label id="footerIds" style="color: white">This Website is a Pac-Man game that was created for a Web Programming course in BGU</label><br>
+			<a href="mailto:dorpi@post.bgu.ac.il,freimans@post.bgu.ac.il">contact us!</a>
+	</footer>
+</body>
+
 </html>

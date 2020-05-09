@@ -1,81 +1,520 @@
 
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 7%;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #game{
-    /* width: 1366px;
-    height: 768px; */
-    background-color: white;
+    width: 100%;
+    height: 100%;
+    background-color: black;
     font-family: Arial, Helvetica, sans-serif;
     border: 1px solid black;
+    position: absolute;
+
+}
+
+.settingsBoxes {
+    width: 50px;
+    background-color: transparent;
+    color: white;
+    font-family: "Comic Sans MS",cursive,sans-serif;
+    font-size: 25px;
+    text-align: left;
+    border: none;
+    margin-left: 10px;
+    font-weight: bold;
 }
 
 
-#canvas{
-     /* position the top  edge of the element at the middle of the parent */
+#pacmanlblDivHeader{
     position: absolute;
-    top: 150px; 
-    left: 50%; 
-    transform: translate(-50%);
+    top: 3%;
+    left: 3%;
+    width: 30%;
+    height: 15%;
+}
 
-    border: 1px solid black;
+#headerIds{
+    position: absolute;
+    top: 5px;
+    right: 20px;
+}
+
+#footer{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+
+#menu{
+	list-style-type: none;
+    overflow: hidden;
+    position: absolute;
+    top: 5%;
+    right: 50px;
+}
+
+
+
+li {
+	float: right;
+}
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px 25px;
+	text-decoration: none;
+}
+li a:hover {
+	background-color: #66a3ff;
+	color: white;
+}
+
+button:focus { outline:0 !important; }
+
+/* Welcome Div */
+
+#welcome{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+#pacmanlblDiv{
+    position: absolute;
+    top: 3%;
+    left: 25%;
+    width: 50%;
+    height: 25%;
+}
+
+#pacmanDiv{
+    position: absolute;
+    left: 8%;
+    top: 25%;
+    transform: rotate(-20deg); 
+    width: 20%;
+    height: 50%;
+}
+
+#pacman2Div{
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    width: 20%;
+    height: 50%;
+}
+
+#monster1Div{
+    position: absolute;
+    right: 15%;
+    top: 40%;
+    transform: rotate(20deg); 
+    width:20%;
+    height: 20%;
+}
+
+#monster2Div{
+    position: absolute;
+    right: 5%;
+    top: 30%;
+    transform: rotate(20deg); 
+    width:20%;
+    height: 20%;
+}
+
+#monster3Div{
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: rotate(20deg); 
+    width:20%;
+    height: 20%;
+}
+
+#monster4Div{
+    position: absolute;
+    right: 0%;
+    top: 40%;
+    transform: rotate(20deg); 
+    width:20%;
+    height: 20%;
+}
+
+.welcomeButton{
+    margin-top: 500px;
+    font-size: 20px;
+    margin-left: 3%;
+    margin-right: 3%;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: black;
+    border: 5px solid white;
+    opacity: 0.8;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 25px;
+    width: 20%;
+    height: 100px;
+    
+}
+
+.welcomeButton:hover{
+    color: black;
+    background-color: white;
+    border: 5px solid green;
+}
+
+.fit{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*****************************************************/
+
+/* Register div */
+
+/* * {box-sizing: border-box} */
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+.chooseBDateBox{
+    font-size: 14px;
+}
+
+/* Full-width input fields */
+.rlTextBox {
+  width: 40%;
+  height: 5px;
+  padding: 15px;
+  margin: 0px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.rlTextBox {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.sbmitbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.control-label{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.registerbtn:hover {
+    opacity:1;
+}
+
+#loginToRegisterBtn{
+    border: none;
+    background-color: black;
+    color: blue;
+    text-decoration: underline;
+}
+
+/*************************************************/
+
+#randomSettingButton{
+    position: absolute;
+    bottom: 250px;
+    left: 15%;
+}
+
+#startGameButton{
+    position: absolute;
+    bottom: 250px;
+    right: 15%;
+}
+
+#canvas{
+    /* position the top  edge of the element at the middle of the parent */
+   position: absolute;
+   top: 20%; 
+   left: 50%; 
+   transform: translate(-50%);
+   -webkit-box-shadow: 1px 2px 11px 8px blue; 
+   box-shadow: 1px 2px 11px 8px blue;
+   border-radius: 20px;
 }
 
 #setting{
-    width: 350px;
-    height: 600px;
-    position: absolute;
-    left: 30px; 
-    top: 150px;
-
+    height: 80%;
+    text-align: center;
+    color: white;
     border: 1px solid black;
 }
 
 #gameInfo{ 
-    width: 350px;
-    height: 400px;
+    width: 100%;
+    height: 100px;
+    top: 0px;
     position: absolute;
-    top: 150px; 
-    right: 30px; 
-    transform: translate(-50%);
-    border: 1px solid black;
+    border: solid 1px black;
 }
 
-#randomSettingButton{
+.alignRandStartButtons{
+    position: relative;
+    bottom: 0px;  
+}
+
+.rsButtons{
     font-weight: bold;
+    font-size: 16px;
     color: whitesmoke;
-    background-color: blue;
-    border: 1px solid black;
-
-    position: absolute;
-    bottom: 30px; 
-    left: 70px; 
+    background-color: #1a53ff;
+    border: none;
+    border-radius: 10px;
+    opacity: 0.9;
+    width: 160px;
+    height: 60px;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
-#startGameButton{
+.rsButtons:hover{
+    color: black;
+    background-color: white;
+    border: 2px solid #1a53ff;
+}
+
+.moveSettingButton{
     font-weight: bold;
+    font-size: 12px;
     color: whitesmoke;
-    background-color: blue;
-    border: 1px solid black;
-
-    position: absolute;
-    bottom: 30px; 
-    right: 70px; 
+    margin-bottom: 7px;
+    border: none;
+    opacity: 0.8;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 8px;
+    width: 120px;
+    height: 50px;
 }
 
-
-#gameSettingTitle{
-    text-align: center;
+.moveSettingButton:hover{
+    color: black;
 }
 
 #Random{
     border: 1px solid black;
 }
 
-#lblBalssNum{
-    font-weight: bold; 
+.align{
+    text-align: center;
 }
 
+.textBoxInput{
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    border: none;
+    width:50px;
+    height: 18px;
+}
 
-button{
-    width: 100px;
+.slider{
+    align-self: center;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 250px; /* Full-width */
+    height: 8px; /* Specified height */
+    background: #1a8cff; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s; 
+    
+}
+.slider::-webkit-slider-thumb{
+    height: 20px;
+    width: 10px;
+    border-radius: 40px;
+    background: #b5b5cf;
+    -webkit-appearance: none;
+}
+
+#settingsMonsters {
+    width: 300px;
     height: 50px;
-    align-content: center;
 }
+
+.SettingsMonsterPic {
+    width: 25px;
+    height: 25px;
+    display: none;
+}
+
+.settingSublbl{
+    text-align: center;
+}
+
+.textBoxText{
+    font-weight: bold;
+}
+
+
+#SmallBall {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#MediumBall {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#BigBall {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.SettingsMenu {
+    float: left;
+    margin-left: 40px;
+    margin-top: 30px;
+    color: yellow;
+    bottom: 0px;
+    position: relative;
+    vertical-align: middle;
+    font-family: "Comic Sans MS",cursive,sans-serif;
+    font-size: 20px;
+    letter-spacing: 0px;
+    word-spacing: -0.8px;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+#score {
+    margin-left: 12%;
+    width: 150px;
+}
+
+#time {
+    width: 150px;
+}
+
+#life {
+    width: 250px;
+}
+
+#ballsNumber {
+    width: 300px;
+}
+
+#monsters {
+    width: 300px;
+    height: 20px;
+    margin-top: 1.5%;
+}
+
+#keys {
+    width: 1000px;
+    margin-top: 10px;
+}
+
+.KeyBoxes {
+    width: 120px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border: none;
+    font-family: "Comic Sans MS",cursive,sans-serif;
+}
+
+#KeyMapping {
+    position: absolute;
+    left: 76%;
+    top: 60%;
+    width: 300px;
+    height: 200px;
+    -webkit-box-shadow: 1px 1px 11px 3px blue; 
+    box-shadow: 1px 1px 11px 3px blue;
+}
+
+#lblKeyMapping {
+    color: white;
+    font-family: "Comic Sans MS",cursive,sans-serif;
+    font-size: 30px;
+    margin-left: 3.5%;
+    text-decoration: underline;
+}
+
+.NewGameButton {
+	box-shadow: 0px 0px 10px 1px #99ff00;
+	background:linear-gradient(to bottom, #2205ff 5%, #23204d 100%);
+	background-color:#2205ff;
+	border-radius:19px;
+	border:3px solid #d9ff00;
+	display:inline-block;
+	cursor:pointer;
+	color:#e1ff00;
+	font-family: "Comic Sans MS",cursive,sans-serif;
+	font-size:30px;
+	font-weight:bold;
+	padding:30px 100px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #050505;
+    margin-top: 15%;
+    margin-left: 75%;
+    position: absolute;
+}
+.NewGameButton:hover {
+	background:linear-gradient(to bottom, #23204d 5%, #2205ff 100%);
+	background-color:#23204d;
+}
+.NewGameButton:active {
+	position:relative;
+	top:1px;
+}
+
+#pacmanImg {
+    margin-top: 15%;
+}
+
+
+
