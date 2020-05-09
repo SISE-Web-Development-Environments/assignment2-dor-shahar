@@ -24,9 +24,9 @@ heart_image.src = "images\\heart_image.png";
 var monsters;
 var monster_colors = ["red", "green", "blue", "orange"]
 
-var win_sound = new Audio("sounds\\win.mp3");
-var eaten_sound = new Audio("sounds\\death.mp3")
-var background_song = new Audio("sounds\\backgroundSong.mp3");
+var win_sound;
+var eaten_sound;
+var background_song;
 
 /* keys for move */
 var moveKeys = {
@@ -112,6 +112,10 @@ function addEvents() {
 	$("#downButton").click(pressedSetKeyButton.bind($("#downButton")[0]));
 	$("#leftButton").click(pressedSetKeyButton.bind($("#leftButton")[0]));
 	$("#rightButton").click(pressedSetKeyButton.bind($("#rightButton")[0]));
+
+	win_sound = new Audio("sounds\\win.mp3");
+	eaten_sound = new Audio("sounds\\death.mp3")
+	background_song = new Audio("sounds\\backgroundSong.mp3");
 }
 
 function Start() {
