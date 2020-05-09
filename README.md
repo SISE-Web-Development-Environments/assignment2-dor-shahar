@@ -9,8 +9,9 @@
 
 * Submitters
 
-   Shahar Freiman - 308235605
-   Dor Pinhas - 312490394
+   Shahar Freiman - 308235605.
+   
+   Dor Pinhas - 312490394.
 
 
 * Game Functionality
